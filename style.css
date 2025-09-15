@@ -1,0 +1,76 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "nav nav"
+    "footer footer";
+  grid-template-columns: 2fr 1fr;
+  min-height: 100vh;
+}
+h3{
+  color: white;
+}
+
+/* === Areas === */
+header { grid-area: header; background: skyblue; color: black; text-align: center; padding: 1rem; }
+nav { grid-area: nav; background: white; }
+.content { grid-area: content; padding: 1rem; background: skyblue; }
+footer { grid-area: footer; background: black; color: white; text-align: left; padding: 1rem; }
+
+/* === Flexbox Nav === */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav li { margin: 0.5rem; }
+nav a { color: black; text-decoration: none; padding: 0.5rem 1rem; }
+nav a:hover { background: white; border-radius: 5px; }
+
+/* === Flexbox plan === */
+.cards {
+  display: flex;
+   gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  
+}
+
+.card {
+  background: white;
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  
+
+
+/* === Media Queries === */
+@media (max-width: 992px) {
+  body {
+    grid-template-areas: 
+      "header"
+      "nav"
+      "content"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul { flex-direction: row; align-items: center; }
+  .cards { flex-direction: column; }
+}
